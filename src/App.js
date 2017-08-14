@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import { Link } from 'react-router-dom';
 import logo from './logo.svg'
+import ProductList from './ListProducts/ProductList'
 
 class App extends Component {
   render() {
@@ -16,7 +17,10 @@ class App extends Component {
         </p>
         <Link to="/login" className="btn btn-primary">Sign in</Link>
         <Link to="/signup" className="btn btn-primary">Sign up</Link>
+      <div>
+        <ProductList />
       </div>
+      </  div>
     );
   }
 }
