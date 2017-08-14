@@ -5,15 +5,26 @@ class ProductList extends Component {
     products = new ProductService();
 
     render(){
-       return this.m1();
+        var productsWithCategory = this.products.getProducts();
+        var productsGrid = [];
+
+        productsWithCategory.forEach(function(product){
+            productsGrid.push(this.showOneProduct(product));
+        }, this);
+
+        return (<div> {productsGrid} </div>);
     }
 
 
-    m1(){
-    var productsWithCategory = this.products.getProducts();
-    console.log(productsWithCategory[0].Name);
-    return (<div id={productsWithCategory[0].id}> {productsWithCategory[0].Name }
-        </div>);
+    showOneProduct(product){
+    return (
+    <div id={product.id} className="row">
+        <img name={'productImage' + product.id} className="col-xs-3" src={product.imageUrl}/>
+        <div className="row">
+            <div name={'productName'+ product.id} className="col-xs-6"><b>{product.Name}</b></div>
+            <div name={'productDescription'+product.id} className="col-xs-6"><b>{product.Description}</b></div>
+        </div>
+    </div>);
     }
 }
 
