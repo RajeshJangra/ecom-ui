@@ -1,10 +1,38 @@
-import React from 'react';
+// import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-//import App from './App';
+// import './index.css';
+import App from './App';
 import Registration from './Registration';
-import registerServiceWorker from './registerServiceWorker';
-import { Link } from 'react-router-dom';
+import Login from './Login';
+// import Signup from './Signup';
+// import Car from './Cars';
+// import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Registration />, document.getElementById('root'));
-registerServiceWorker();
+// ReactDOM.render(<App />, document.getElementById('root'));
+// registerServiceWorker();
+
+
+
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+// Import routing components
+// import {Router, Route} from 'react-router';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+
+
+render(
+    <Router>
+        <div>
+        {/* <!--Each route is defined with Route--> */}
+        <Route exact path="/" component={App}/>
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Registration} />
+        {/* <Route path="/cars" component={Car} /> */}
+        <Route path="/teachers" component={Login} />
+        <Route path="/courses" component={Login} />
+        {/* <Redirect to="/" /> */}
+        </div>
+    </Router>,
+    document.getElementById('root')
+);
+

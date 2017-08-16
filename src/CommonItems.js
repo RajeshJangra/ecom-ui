@@ -21,7 +21,7 @@ class CommonItems extends Component {
             <InputElement type="password" label="confirm password" name={Constants.CONFIRM_PASSWORD}  handler={this.props.handler}/>
             <InputElement type="text" label="Address" name={Constants.ADDRESS} handler={this.props.handler}/>
             <InputElement type="number" label="Mobile" max="9999999999" name={Constants.MOBILE} handler={this.props.handler}/>
-            <InputSelector options= { [ { value: 'Buyer', label: 'Buyer'} , {value: 'Seller', label: 'Seller'} ] } label="Type"/>
+            <InputSelector options= { [ { value: 'Buyer', label: 'Buyer'} , {value: 'Seller', label: 'Seller'} ] } label="Type" handler={this.props.handler}/>
             </tbody>
         </table>
       );
