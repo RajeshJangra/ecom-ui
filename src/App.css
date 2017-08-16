@@ -22,3 +22,16 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-image: linear-gradient(white, gray);
+}
