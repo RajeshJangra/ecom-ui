@@ -5,11 +5,7 @@ import { Link } from 'react-router-dom';
 
 class Registration extends Component {
   constructor(props) {
-    super({
-      isBuyer: false,
-      isSeller: false,
-      ...props
-    });
+    super(props);
     this.state = {};
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -27,7 +23,7 @@ class Registration extends Component {
 
     render() {
       return (
-        <div id="RegistrationForm" name="RegistrationForm" className="visible-lg container">
+        <div id="RegistrationForm" name="RegistrationForm">
           <h1> New User Registration</h1>
 
           <div className="row">
@@ -52,7 +48,7 @@ class Registration extends Component {
                 ? <div className="form-group row">
                     <label className="control-label col-sm-4">Date of Birth</label>
                     <div className="col-sm-8">
-                        <input type="datepicker" value="" placeholder="dd/mm/yyyy" />
+                        <input className="form-control" type="datepicker" placeholder="dd/mm/yyyy" />
                     </div>
                   </div>
                 : null}
@@ -61,24 +57,24 @@ class Registration extends Component {
                 ? <div className="form-group row">
                     <label className="control-label col-sm-4">PAN No</label>
                     <div className="col-sm-8">
-                      <input type="text" value=""/>
+                      <input className="form-control" type="text"/>
                      </div>
                   </div>    
                 :null}
 
                 {this.isSeller
                 ? <div className="form-group row">
-                    <label className="control-label col-sm-4">Experience</label>             
+                    <label className="control-label col-sm-4">Experience</label>
                     <div className="col-sm-8">
-                      <div className="form-row">
-                        <div className="col-md-4">
-                          <input type="text" value=""/><span>Years</span>
-                        </div>
+                    <div className="form-row">
+                      <div className="col">
+                        <input className="form-control" type="number"/><span>Years</span>
                       </div>
+                    </div>
 
                       <div className="form-row">
                         <div className="col">
-                          <input type="text" value=""/><span>Months</span>
+                          <input className="form-control" type="number"/><span>Months</span>
                         </div>
                       </div>
                      </div>
