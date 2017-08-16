@@ -3,28 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "chai": "^4.1.1",
     "enzyme": "^2.9.1",
+    "isomorphic-fetch": "^2.2.1",
+    "jest": "^19.0.2",
+    "jest-cli": "^19.0.2",
     "prop-types": "^15.5.10",
-    "bootstrap": "^3.3.7",
-    "fetch": "^1.1.0",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.2",
     "react-dom": "^15.6.1",
     "react-dropdown": "^1.2.5",
     "react-router": "^4.1.2",
     "react-router-dom": "^4.1.2",
+    "react-scripts": "1.0.11",
     "react-select": "^1.0.0-rc.5",
     "react-test-renderer": "^15.6.1",
-    "react-validation": "^2.10.9",
-    "react-scripts": "1.0.11",
-    "jest": "^19.0.2",
-    "jest-cli": "^19.0.2"
-  },
-  "devDependencies": {
-    "babel-jest": "<current-version>",
-    "jest": "^19.0.2",
-    "react-test-renderer": "^19.0.2"
+    "react-validation": "^2.10.9"
   },
   "devDependencies": {
     "enzyme": "^2.9.1",
