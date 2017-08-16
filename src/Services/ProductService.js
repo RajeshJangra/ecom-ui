@@ -1,8 +1,8 @@
 import fetch from "isomorphic-fetch";
 
 export class ProductService {
-    getProducts(){
-        return fetch('http://localhost:9081/products', {
+    getProducts(pageNumber){
+        return fetch('http://localhost:8181/products?pageNumber=' + pageNumber, {
             headers: {
                 'Access-Control-Allow-Origin':'*',
                 'Accept': 'application/json',

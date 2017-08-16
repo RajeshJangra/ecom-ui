@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import {shallow} from 'enzyme';
 import React from 'react';
 import InputSelector from './InputSelector';
 import {expect} from 'chai';

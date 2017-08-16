@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import InputElement from './InputElement';
-import Dropdown from 'react-dropdown';
+import React, {Component} from 'react';
 
 class InputSelector extends Component {
     changeHandler(e) {

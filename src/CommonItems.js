@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import InputElement from './InputElement';
 import InputSelector from './InputSelector';
-import Dropdown from 'react-dropdown';
 import Constants from './Constants';
 
 const obj = {

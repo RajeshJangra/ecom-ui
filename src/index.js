@@ -1,23 +1,19 @@
 // import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 // import './index.css';
 import App from './App';
 import Registration from './Registration';
 import Login from './Login';
+import React from 'react';
+// Import routing components
+// import {Router, Route} from 'react-router';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 // import Signup from './Signup';
 // import Car from './Cars';
 // import registerServiceWorker from './registerServiceWorker';
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 // registerServiceWorker();
-
-
-
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-// Import routing components
-// import {Router, Route} from 'react-router';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 
 render(

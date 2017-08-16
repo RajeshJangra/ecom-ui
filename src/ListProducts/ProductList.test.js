@@ -1,6 +1,6 @@
 import ProductList from './ProductList';
 import {shallow} from 'enzyme';
-import React, { Component } from 'react';
+import React from 'react';
 
 
 it('renders ProductList with list of Products', () => {
