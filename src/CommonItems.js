@@ -14,7 +14,7 @@ class CommonItems extends Component {
       return (
         <table id="CommonItems" name="CommonItems">
             <tbody>
-            <InputElement type="text" label="Name" name={Constants.NAME} handler={this.props.handler}/>
+            <InputElement type="text" label="Name" name={Constants.DISPLAY_NAME} handler={this.props.handler}/>
             <InputElement type="text" label="Email Id" name={Constants.EMAIL_ID} handler={this.props.handler}/>
             <InputElement type="text" label="User Name" name={Constants.USER_NAME} handler={this.props.handler}/>
             <InputElement type="password" label="Password" name={Constants.PASSWORD} handler={this.props.handler}/>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Validation from 'react-validation';
 
 class InputElement extends Component {
 
@@ -11,6 +12,7 @@ class InputElement extends Component {
             </td>
             <td>                
                 <input type={this.props.type} name={this.props.name} max={this.props.size} onChange={this.props.handler} />
+                {/* <Validation.components.Input value='email@email.com' max={this.props.size} name={this.props.name} validations={['required', 'email']}/> */}
             </td>
         </tr>
       )
