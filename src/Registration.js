@@ -5,47 +5,95 @@ import { Link } from 'react-router-dom';
 
 class Registration extends Component {
   constructor(props) {
-    super(props);
+    super({
+      isBuyer: false,
+      isSeller: false,
+      ...props
+    });
     this.state = {};
 
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
 
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
+  handleInputChange(value) {
+    this.isBuyer = (value === "Buyer");
+    this.isSeller = (value === "Seller");
 
     this.setState({
-      [name]: value
+      "UserType": value
     });
-    console.log(this.state);
   }
 
     render() {
       return (
-        <div id="RegistrationForm" name="RegistrationForm" className="visible-lg bg-success">
-          <h1> This is Jai</h1>
+        <div id="RegistrationForm" name="RegistrationForm" className="visible-lg container">
+          <h1> New User Registration</h1>
 
           <div className="row">
-          <div className="col-sm-4">
-          </div>
-          <div className="col-sm-4">
-          
             <form className="form-horizontal" onSubmit={this.handleSubmit}>
-                <CommonItems handler={this.handleInputChange}/>
-                <div className="form-group">        
-                <div className="col-sm-offset-2 col-sm-1">
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                </div>
-                <div className="col-sm-offset-1 col-sm-1">
-                    <Link to="/" className="btn btn-primary">Cancel</Link>
-                </div>
+                <CommonItems handler={this.handleInputChange.bind(this)}/>
+
+                {this.isBuyer 
+                ? <div className="form-group row">
+                    <label className="control-label col-sm-4">Gender</label>
+                    <div className="col-sm-8">
+                        <select>
+                            <option value="">Please select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                  </div>
+                  : null
+                }
+        
+                {this.isBuyer
+                ? <div className="form-group row">
+                    <label className="control-label col-sm-4">Date of Birth</label>
+                    <div className="col-sm-8">
+                        <input type="datepicker" value="" placeholder="dd/mm/yyyy" />
+                    </div>
+                  </div>
+                : null}
+                
+                {this.isSeller
+                ? <div className="form-group row">
+                    <label className="control-label col-sm-4">PAN No</label>
+                    <div className="col-sm-8">
+                      <input type="text" value=""/>
+                     </div>
+                  </div>    
+                :null}
+
+                {this.isSeller
+                ? <div className="form-group row">
+                    <label className="control-label col-sm-4">Experience</label>             
+                    <div className="col-sm-8">
+                      <div className="form-row">
+                        <div className="col-md-4">
+                          <input type="text" value=""/><span>Years</span>
+                        </div>
+                      </div>
+
+                      <div className="form-row">
+                        <div className="col">
+                          <input type="text" value=""/><span>Months</span>
+                        </div>
+                      </div>
+                     </div>
+                  </div>    
+                :null}
+
+                <div className="form-group row">
+                  <div className="col-sm-offset-2 col-sm-4">
+                      <button type="submit" className="btn btn-primary">Submit</button>
+                  </div>
+                  <div className="col-sm-offset-1 col-sm-1">
+                      <Link to="/" className="btn btn-primary">Cancel</Link>
+                  </div>
                 </div>
             </form>
-          </div>
-
           </div>
         </div>
       );
