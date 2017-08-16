@@ -5,7 +5,10 @@ class ProductList extends Component {
     products = new ProductService();
 
     render(){
-        var productsWithCategory = this.products.getProducts();
+        var productsWithCategory;
+        this.products.getProducts().then(x=>{
+            productsWithCategory = x.products;
+        });
         var productsGrid = [];
 
         productsWithCategory.forEach(function(product){
