@@ -6,7 +6,7 @@ import Header from '../header/Header'
 import Footer from "../footer/Footer";
 import { AppSecurityService } from '../Services/AppSecurityService';
 
-const browserHistory = createBrowserHistory();
+// const browserHistory = createBrowserHistory();
 
 class Login extends Component {
     appSecurityService = new AppSecurityService();
@@ -20,7 +20,7 @@ class Login extends Component {
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleRedirect = this.handleRedirect.bind(this);
+        // this.handleRedirect = this.handleRedirect.bind(this);
     }
 
     handleInputChange(event) {
@@ -33,17 +33,16 @@ class Login extends Component {
         });
     }
 
-    handleRedirect() {
-        console.log("here");
-        browserHistory.push('/');
-    }
 
     handleSubmit(event) {
+        console.log("here");
+        event.preventDefault();
+
         this.appSecurityService
             .login(this.state.username, this.state.pwd)
             .then(status => {
                 if(status === true){
-                    browserHistory.replace('/products');
+                    this.props.history.push('/products');
                 }     
                 else
                     this.showErrorMessage();
@@ -64,7 +63,7 @@ class Login extends Component {
                     </div>
                     <div className="col-sm-4">
 
-                        <form className="form-horizontal" >
+                        <form className="form-horizontal"  onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <label className="control-label col-sm-2" htmlFor="username">Username:</label>
                                 <div className="col-sm-8">
@@ -101,7 +100,7 @@ class Login extends Component {
                             </div>
                             <div className="form-group">
                                 <div className="col-sm-offset-2 col-sm-1">
-                                    <button type="submit" className="btn btn-primary">Submit</button>
+                                    <button className="btn btn-primary">Submit</button>
                                 </div>
                                 <div className="col-sm-offset-2 col-sm-1">
                                     <Link to="/" className="btn btn-primary">Cancel</Link>
