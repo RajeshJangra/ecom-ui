@@ -1,29 +1,67 @@
 import React, {Component} from 'react';
 import {ProductService} from '../Services/ProductService';
 import '../App.css';
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
+import {CategoryService} from "../Services/CategoryService";
 
 class ProductList extends Component {
     products = new ProductService();
     productsWithCategory = [];
     productsGrid = [];
+    categories = new CategoryService();
 
     constructor() {
         super();
         this.state = {
             value: [],
-            pageNumber: 1
+            pageNumber: 0,
+            categories: []
         };
     }
 
     render() {
         return (
             <div className="container-fluid">
-                {this.showLabels()}
-                {this.state.value}
+                <Header/>
+                <div className="row mb20">
+                    <label>Category</label>
+                    <select onChange={this.handleCategoryChange.bind(this)}>
+                        <option value="">Select category</option>
+                        {
+                            this.state.categories.map(x => <option key={x.id} value={x.id}>{x.name}</option>)
+                        }
+                    </select>
+                </div>
+                <table className="table table-striped">
+                    <thead className="thead-inverse">
+                    {this.showLabels()}
+                    </thead>
+                    <tbody>
+                    {this.state.value}
+                    </tbody>
+                </table>
+                <Footer/>
             </div>);
     }
 
+    handleCategoryChange(e) {
+        const category = e.target.value;
+        const self = this;
+
+        this.products.getProducts(0, category).then(x => x.content).then(products => {
+            const p = products.map(p => self.showOneProduct(p));
+
+            // products.forEach(function (product) {
+            //     self.productsGrid.push(self.showOneProduct(product));
+            // }, this);
+            self.setState({value: p});
+        });
+    }
+
     componentDidMount() {
+        console.log("Component did mount called");
+
         var self = this;
         this.products.getProducts(this.state.pageNumber)
             .then(products => {
@@ -33,32 +71,39 @@ class ProductList extends Component {
                 }, this);
                 self.setState({value: self.productsGrid});
             });
+
+        this.categories.getCategories().then(data => this.setState({categories: data}));
     }
 
     showLabels() {
         return (
-            <div id='productLabel' className="row mb20">
-                <div className="col-sm-2">Image</div>
-                <div className="col-sm-2">Name</div>
-                <div className="col-sm-2">Description</div>
-                <div className="col-sm-2">Price</div>
-                <div className="col-sm-2">Quantity Available</div>
-                <div className="col-sm-2">Category</div>
-            </div>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
         );
     }
 
     showOneProduct(product) {
         return (
-            <div id={product.id} key={product.id} className="row mb20">
-                <img name={'imageUrl' + product.id} className="img-responsive" src={product.imageUrl} alt="Image"/>
-                <div name={'name' + product.id} className="col-sm-2">{product.name}</div>
-                <div name={'description' + product.id} className="col-sm-2">{product.description}</div>
-                <div name={'price' + product.id} className="col-sm-2">{product.price}</div>
-                <div name={'avalablequantity' + product.id} className="col-sm-2"> {product.availableQuantity}</div>
-                <div name={'category' + product.id} className="col-sm-2">{product.category.name}</div>
-                <button name={'buy' + product.id} type="button" class="btn btn-primary">Buy</button>
-            </div>
+            <tr id={product.id} key={product.id}>
+                <td>
+                    <img name={'imageUrl' + product.id} src={product.imageUrl} alt="Image"/>
+                </td>
+                <td name={'name' + product.id}>{product.name}</td>
+                <td name={'description' + product.id}>{product.description}</td>
+                <td name={'price' + product.id}>{product.price}</td>
+                <td name={'avalablequantity' + product.id}> {product.availableQuantity}</td>
+                <td name={'category' + product.id}>{product.category.name}</td>
+                <td>
+                    <button name={'buy' + product.id} type="button" className="btn btn-primary">Buy</button>
+                </td>
+            </tr>
         );
     }
 }

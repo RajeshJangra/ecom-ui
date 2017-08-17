@@ -10,10 +10,10 @@ const logoStyle = {
 class Header extends Component {
     render() {
         return (
-            <div>
+            <header>
                 <h1> Welcome to Titans Ecommerce</h1>
                 <p><img src={logo} style={logoStyle}/></p>
-            </div>
+            </header>
         );
     }
 }

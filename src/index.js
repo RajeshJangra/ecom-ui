@@ -5,6 +5,7 @@ import App from './App';
 import Registration from './Registration';
 import Login from './Login';
 import React from 'react';
+import ProductList from './ListProducts/ProductList';
 // Import routing components
 // import {Router, Route} from 'react-router';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
@@ -19,14 +20,15 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 render(
     <Router>
         <div>
-        {/* <!--Each route is defined with Route--> */}
-        <Route exact path="/" component={App}/>
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Registration} />
-        {/* <Route path="/cars" component={Car} /> */}
-        <Route path="/teachers" component={Login} />
-        <Route path="/courses" component={Login} />
-        {/* <Redirect to="/" /> */}
+            {/* <!--Each route is defined with Route--> */}
+            <Route exact path="/" component={App}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/signup" component={Registration}/>
+            {/* <Route path="/cars" component={Car} /> */}
+            <Route path="/teachers" component={Login}/>
+            <Route path="/courses" component={Login}/>
+            <Route path="/products" component={ProductList}/>
+            {/* <Redirect to="/" /> */}
         </div>
     </Router>,
     document.getElementById('root')
