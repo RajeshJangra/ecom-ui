@@ -4,6 +4,7 @@ import '../App.css';
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import {CategoryService} from "../Services/CategoryService";
+import { Link } from 'react-router-dom';
 
 class ProductList extends Component {
     products = new ProductService();
@@ -101,7 +102,7 @@ class ProductList extends Component {
                 <td name={'avalablequantity' + product.id}> {product.availableQuantity}</td>
                 <td name={'category' + product.id}>{product.category.name}</td>
                 <td>
-                    <button name={'buy' + product.id} type="button" className="btn btn-primary">Buy</button>
+                    <Link to="/checkout" className="btn btn-primary">Buy</Link>
                 </td>
             </tr>
         );
