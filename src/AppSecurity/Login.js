@@ -1,17 +1,19 @@
 import React, {Component} from 'react';
-import './App.css';
+import '../App.css';
 import {createBrowserHistory} from 'history';
 import {Link} from 'react-router-dom';
-import Header from './header/Header'
-import Footer from "./footer/Footer";
+import Header from '../header/Header'
+import Footer from "../footer/Footer";
+import { AppSecurityService } from '../Services/AppSecurityService';
 
 const browserHistory = createBrowserHistory();
 
 class Login extends Component {
+    appSecurityService = new AppSecurityService();
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
+            username: '',
             pwd: '',
         };
 
@@ -37,7 +39,15 @@ class Login extends Component {
     }
 
     handleSubmit(event) {
-        alert('Your favorite flavor is: ' + this.state.value);
+        this.appSecurityService
+            .login(this.state.username, this.state.pwd)
+            .then(status => {
+                if(status === true)
+                    console.log('login sucessful');
+                else
+                    console.log('login failed');
+        }, this);
+        alert('Your favorite flavor is: ' + this.state.username+this.state.pwd);
         console.log(this.state);
     }
 
@@ -54,15 +64,15 @@ class Login extends Component {
 
                         <form className="form-horizontal" onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label className="control-label col-sm-2" htmlFor="email">Email:</label>
+                                <label className="control-label col-sm-2" htmlFor="username">Username:</label>
                                 <div className="col-sm-8">
                                     <input
-                                        type="email"
+                                        type="username"
                                         className="form-control"
-                                        id="email"
-                                        placeholder="Enter email"
-                                        name="email"
-                                        value={this.state.email}
+                                        id="username"
+                                        placeholder="Enter User Name"
+                                        name="username"
+                                        value={this.state.username}
                                         onChange={this.handleInputChange}/>
                                 </div>
                             </div>
