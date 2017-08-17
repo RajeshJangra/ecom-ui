@@ -64,8 +64,8 @@ class Login extends Component {
                     <div className="col-sm-4">
 
                         <form className="form-horizontal"  onSubmit={this.handleSubmit}>
-                            <div className="form-group">
-                                <label className="control-label col-sm-2" htmlFor="username">Username:</label>
+                            <div className="form-group row">
+                                <label className="control-label col-sm-4" htmlFor="username">Username:</label>
                                 <div className="col-sm-8">
                                     <input
                                         type="username"
@@ -77,8 +77,8 @@ class Login extends Component {
                                         onChange={this.handleInputChange}/>
                                 </div>
                             </div>
-                            <div className="form-group">
-                                <label className="control-label col-sm-2" htmlFor="pwd">Password:</label>
+                            <div className="form-group row">
+                                <label className="control-label col-sm-4" htmlFor="pwd">Password:</label>
                                 <div className="col-sm-8">
                                     <input
                                         type="password"
@@ -92,14 +92,14 @@ class Login extends Component {
                                 </div>
                             </div>
                             <div className="form-group">
-                                <div className="col-sm-offset-2 col-sm-5">
+                                <div className="col-sm-offset-2 col-sm-8">
                                     <div className="checkbox">
                                         <label><input type="checkbox" name="remember"/> Remember me</label>
                                     </div>
                                 </div>
                             </div>
-                            <div className="form-group">
-                                <div className="col-sm-offset-2 col-sm-1">
+                            <div className="form-group row">
+                                <div className="col-sm-offset-2 col-sm-3">
                                     <button className="btn btn-primary">Submit</button>
                                 </div>
                                 <div className="col-sm-offset-2 col-sm-1">
