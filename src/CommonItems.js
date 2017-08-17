@@ -4,34 +4,33 @@ import InputSelector from './InputSelector';
 import Constants from './Constants';
 
 const obj = {
-  "displayName": "",
-  "email": "",
+  "name": "",
+  "emailId": "",
   "username": "",
   "password": "",
-  "confirmPassword": "",
   "address": "",
   "mobileNumber": "",
-  "userType": ""
+  "type": "",
 };
 
 class CommonItems extends Component {
   handleUserTypeChange(value) {
-      this.setState({userType:value});
-      obj.userType = value;
+      this.setState({type:value});
+      obj.type = value;
       this.props.handler(obj);
     }
     handleNameChange(e){
-      this.setState({displayName:e.target.value});
-      obj.displayName = e.target.value;
+      this.setState({name:e.target.value});
+      obj.name = e.target.value;
       this.props.handler(obj);
     }
     handleEmailChange(e){
       this.setState({emailId:e.target.value});
-      obj.email = e.target.value;
+      obj.emailId = e.target.value;
       this.props.handler(obj);
     }
     handleUserNameChange(e){
-      this.setState({userName:e.target.value});
+      this.setState({username:e.target.value});
       obj.username = e.target.value;
       this.props.handler(obj);
     }
@@ -51,7 +50,7 @@ class CommonItems extends Component {
       this.props.handler(obj);
     }
     handleMobileChange(e){
-      this.setState({mobile:e.target.value});
+      this.setState({mobileNumber:e.target.value});
       obj.mobileNumber = e.target.value;
       this.props.handler(obj);
     }
