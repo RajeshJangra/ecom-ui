@@ -44,7 +44,7 @@ class Registration extends Component {
         };
 
         // Making ajax call to server
-        fetch("http://10.136.23.101:8181/user/register",
+        fetch("http://localhost:8181/user/register",
             {
                 headers: {
                     'Accept': 'application/json',
@@ -57,8 +57,8 @@ class Registration extends Component {
                 console.log(res)
             })
             .catch(function (res) {
-                console.log(res)
-            })
+                alert("Oops! Registration failed.")
+            });
     }
 
     handleGenderChange(e) {

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
 import { Link } from 'react-router-dom';
-import ProductList from './ListProducts/ProductList'
 import Header from './header/Header'
 import Footer from './footer/Footer'
 
@@ -17,9 +16,6 @@ class App extends Component {
                     <Link to="/signup" className="btn btn-primary col-md-12">Sign up</Link>
                 </div>
 
-                <div>
-                    <ProductList />
-                </div>
                 <div>
                     <Footer />
                 </div>
