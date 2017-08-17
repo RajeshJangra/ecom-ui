@@ -42,15 +42,17 @@ class Login extends Component {
         this.appSecurityService
             .login(this.state.username, this.state.pwd)
             .then(status => {
-                if(status === true)
-                    console.log('login sucessful');
+                if(status === true){
+                    browserHistory.replace('/products');
+                }     
                 else
-                    console.log('login failed');
+                    this.showErrorMessage();
         }, this);
-        alert('Your favorite flavor is: ' + this.state.username+this.state.pwd);
-        console.log(this.state);
     }
 
+    showErrorMessage(){
+        alert("Login Failed!! Invalid Username/Password");
+    }
 
     render() {
         return (
@@ -62,7 +64,7 @@ class Login extends Component {
                     </div>
                     <div className="col-sm-4">
 
-                        <form className="form-horizontal" onSubmit={this.handleSubmit}>
+                        <form className="form-horizontal" >
                             <div className="form-group">
                                 <label className="control-label col-sm-2" htmlFor="username">Username:</label>
                                 <div className="col-sm-8">
