@@ -30,7 +30,7 @@ render(
             <Route path="/teachers" component={Login}/>
             <Route path="/courses" component={Login}/>
             <Route path="/products" component={ProductList}/>
-            <Route path="/checkout" component={Checkout}/>
+            <Route path="/checkout/:productId" component={Checkout}/>
             <Route path="/orderconfirmation" component={OrderConfirmation}/>
             {/* <Redirect to="/" /> */}
         </div>

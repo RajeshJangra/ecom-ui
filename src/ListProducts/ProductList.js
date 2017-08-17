@@ -102,7 +102,7 @@ class ProductList extends Component {
                 <td name={'avalablequantity' + product.id}> {product.availableQuantity}</td>
                 <td name={'category' + product.id}>{product.category.name}</td>
                 <td>
-                    <Link to="/checkout" className="btn btn-primary">Buy</Link>
+                    <Link to={"/checkout/" + product.id} className="btn btn-primary">Buy</Link>
                 </td>
             </tr>
         );
